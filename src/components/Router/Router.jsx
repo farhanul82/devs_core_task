@@ -26,14 +26,17 @@ export const Routes2 = createBrowserRouter([
       {
         path: "/members",
         element: <Members />,
-        
+
         children: [
           { path: "applicants", element: <Applicants /> },
           { path: "application-review", element: <ApplicationReview /> },
           { path: "paid", element: <Paid /> },
           { path: "exam", element: <Exam /> },
           { path: "interview", element: <Interview /> },
-          { path: "Eligible-for-membership", element: <EligibleForMembership /> },
+          {
+            path: "Eligible-for-membership",
+            element: <EligibleForMembership />,
+          },
         ],
       },
     ],
