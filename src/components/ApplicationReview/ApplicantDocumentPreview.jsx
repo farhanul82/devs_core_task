@@ -2,16 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import { ApplicantReviewContext } from "../../contexts/ApplicantReviewContext";
 import Tab from "../Shared/Tab/Tab";
 
-const ApplicantDocument = () => {
-  const { checkedApplicant, applicantDocument } = useContext(
-    ApplicantReviewContext
-  );
+const ApplicantDocumentPreview = () => {
+  const { checkedApplicant } = useContext(ApplicantReviewContext);
 
   const [documentFile, setDocumentFile] = useState("");
 
   useEffect(() => {
     if (checkedApplicant) {
-
       setDocumentFile(
         checkedApplicant?.documents?.find((item) => item?.isChecked)
       );
@@ -39,4 +36,4 @@ const ApplicantDocument = () => {
   );
 };
 
-export default ApplicantDocument;
+export default ApplicantDocumentPreview;

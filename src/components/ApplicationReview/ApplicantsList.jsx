@@ -43,7 +43,7 @@ const ApplicantsList = () => {
               <div
                 key={item?.id}
                 className={`py-2 px-[5px] ${
-                  applicantsData?.length - 1 === index ? "" : "border-r"
+                  applicantsData?.length - 1 === index ? "" : "lg:border-b border-r"
                 }  border-slate-300`}
               >
                 {/* Checkbox component for each applicant */}

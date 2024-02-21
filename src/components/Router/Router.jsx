@@ -3,7 +3,6 @@ import Students from "../../features/Students";
 import Associates from "../../features/Associates";
 import EightYear from "../../features/EightYear";
 import Fellow from "../../features/Fellow";
-import Home from "../../features/Home";
 import { createBrowserRouter } from "react-router-dom";
 import Members from "../../features/Members/Members";
 import Applicants from "../../features/Members/Applicants";
@@ -12,11 +11,12 @@ import EligibleForMembership from "../../features/Members/EligibleForMembership"
 import Exam from "../../features/Members/Exam";
 import Paid from "../../features/Members/Paid";
 import Interview from "../../features/Members/Interview";
+import App from "../../App";
 
 export const Routes2 = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <App />,
     children: [
       { path: "/", element: <Members /> },
       { path: "/students", element: <Students /> },

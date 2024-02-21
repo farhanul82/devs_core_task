@@ -4,7 +4,7 @@ import ApplicationReviewHeader from "../../components/ApplicationReview/Applicat
 import { ApplicantReviewContext } from "../../contexts/ApplicantReviewContext";
 import UserDetailsComponent from "../../components/ApplicationReview/UserDetailsComponent";
 import UserDocuments from "../../components/ApplicationReview/UserDocuments";
-import ApplicantDocument from "../../components/ApplicationReview/Document";
+import ApplicantDocumentPreview from "../../components/ApplicationReview/ApplicantDocumentPreview";
 import ApplicantsList from "../../components/ApplicationReview/ApplicantsList";
 import { dummy_data } from "../../Data";
 
@@ -36,7 +36,7 @@ const ApplicationReview = () => {
 
         <UserDocuments />
 
-        <ApplicantDocument />
+        <ApplicantDocumentPreview />
       </div>
     </ApplicantReviewContext.Provider>
   );
