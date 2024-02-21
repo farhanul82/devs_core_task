@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import ComingSoon from "../components/Shared/CommimgSoon/ComingSoon";
 
 const Students = () => {
-  return (
-    <div>Students</div>
-  )
-}
+  return <ComingSoon />;
+};
 
-export default Students
+export default Students;

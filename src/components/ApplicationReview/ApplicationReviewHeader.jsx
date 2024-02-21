@@ -1,28 +1,30 @@
 import React, { useContext, useState } from "react";
-import Input from "../Shared/Input";
-import Button from "../Shared/Button";
-import { MdFilterList } from "react-icons/md";
-import CheckboxText from "../Shared/CheckboxText/CheckboxText";
-import { ApplicantReviewContext } from "../../contexts/ApplicantReviewContext";
-import { dummy_data } from "../../Data";
-import FilterModal from "../Shared/Modal/FilterModal";
-import Select from "../Shared/Selelct/Select";
-import { Nationality_options } from "../../constants";
-import { AiOutlineClose } from "react-icons/ai";
+import Input from "../Shared/Input"; // Importing input component
+import Button from "../Shared/Button"; // Importing button component
+import { MdFilterList } from "react-icons/md"; // Importing filter list icon
+import CheckboxText from "../Shared/CheckboxText/CheckboxText"; // Importing checkbox component
+import { ApplicantReviewContext } from "../../contexts/ApplicantReviewContext"; // Importing context
+import { dummy_data } from "../../Data"; // Importing dummy data
+import FilterModal from "../Shared/Modal/FilterModal"; // Importing filter modal
+import Select from "../Shared/Selelct/Select"; // Importing select component
+import { Nationality_options } from "../../constants"; // Importing nationality options
+import { AiOutlineClose } from "react-icons/ai"; // Importing close icon
 
 const ApplicationReviewHeader = () => {
-  const { applicantsData } = useContext(ApplicantReviewContext);
-  const [isOpenModal, setIsOpenModal] = useState(false);
-  const { setApplicantsData } = useContext(ApplicantReviewContext);
-  const [isFilteredByModal, setIsFilteredByModal] = useState(false);
+  const { applicantsData } = useContext(ApplicantReviewContext); // Accessing context
+  const [isOpenModal, setIsOpenModal] = useState(false); // State for modal open/close
+  const { setApplicantsData } = useContext(ApplicantReviewContext); // Accessing context to set applicants data
+  const [isFilteredByModal, setIsFilteredByModal] = useState(false); // State to track if filtered by modal
 
+  // Function to handle search input
   const handleInputSearch = (val) => {
     const filterData = [...applicantsData].filter((item) =>
-      item.name.toLowerCase().includes(val)
+      item.name.toLowerCase().includes(val.toLowerCase())
     );
     setApplicantsData(val ? filterData : [...dummy_data]);
   };
 
+  // Function to handle modal button click
   const handleModalBtnClick = () => {
     if (isFilteredByModal) {
       setApplicantsData([...dummy_data]);
@@ -33,6 +35,7 @@ const ApplicationReviewHeader = () => {
     setIsOpenModal(true);
   };
 
+  // Function to handle nationality select value
   const handleNationalitySelectValue = (e) => {
     const filterData = [...dummy_data].filter((item) =>
       item.nationality.toLowerCase().includes(e.target.value.toLowerCase())
@@ -44,6 +47,7 @@ const ApplicationReviewHeader = () => {
 
   return (
     <div className="flex md:flex-row flex-col justify-center md:justify-between items-center">
+      {/* Search input and filter button */}
       <div className="flex items-center">
         <Input onChange={(e) => handleInputSearch(e.target.value)} />
         <Button
@@ -55,6 +59,7 @@ const ApplicationReviewHeader = () => {
         />
       </div>
 
+      {/* Filter modal */}
       <FilterModal isOpen={isOpenModal} onClose={() => setIsOpenModal(false)}>
         <div>
           <Select
@@ -67,6 +72,7 @@ const ApplicationReviewHeader = () => {
         </div>
       </FilterModal>
 
+      {/* Info and docs counts */}
       <div className="flex items-center md:my-0 my-2">
         <p className="text-lg text-gray-500">
           Info: <span className="text-2xl text-black font-bold">12/22</span>{" "}
@@ -76,6 +82,7 @@ const ApplicationReviewHeader = () => {
         </p>
       </div>
 
+      {/* Denied and approved buttons */}
       <div className="flex items-center">
         <Button
           text="Denied"

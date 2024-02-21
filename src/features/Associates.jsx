@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import ComingSoon from "../components/Shared/CommimgSoon/ComingSoon";
 
 const Associates = () => {
-  return (
-    <div className='444444444444'>Associates</div>
-  )
-}
+  return <ComingSoon />;
+};
 
-export default Associates
+export default Associates;
